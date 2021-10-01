@@ -113,20 +113,20 @@ class Game_Handler:
         
 # Example for using this lib:
 
-# Initialize the dealer.
-Dealer = Game_Handler().Dealer()
+# # Initialize the dealer.
+# Dealer = Game_Handler().Dealer()
 
-# Create the player(s).
-players = {
-    "p1": Game_Handler().create_player("Vipth"),
-    "p2": Game_Handler().create_player("Player 2")
-}
+# # Create the player(s).
+# players = {
+#     "p1": Game_Handler().create_player("Vipth"),
+#     "p2": Game_Handler().create_player("Player 2")
+# }
 
-# For this example we have two players, so we will deal them both half of the deck.
-# You cannot exceed the amount of cards in a standard deck (52).
-for player in players:
-    Dealer.deal_cards(players[player], 6)
+# # For this example we have two players, so we will deal them both half of the deck.
+# # You cannot exceed the amount of cards in a standard deck (52).
+# for player in players:
+#     Dealer.deal_cards(players[player], 26)
 
-# Print both players hands.
-for player in players:
-    print(f"{players[player].name}: {players[player].hand}")
+# # Print both players hands.
+# for player in players:
+#     print(f"{players[player].name}: {players[player].hand}")
