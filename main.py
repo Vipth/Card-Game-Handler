@@ -105,28 +105,41 @@ class Game_Handler:
             """Deals cards."""
             player.hand = [self.Dealer.random_card(self) for _ in range(cards)]
 
+    class Card_Interpreter:
+        Card: str
+        def return_card_value(self, Card, high_ace=False):
+            if "Ace" in Card:
+                if high_ace == True:
+                    return 14
+                else:
+                    return 1
+            elif "Two" in Card:
+                return 2
+            elif "Three" in Card:
+                return 3
+            elif "Four" in Card:
+                return 4
+            elif "Five" in Card:
+                return 5
+            elif "Six" in Card:
+                return 6
+            elif "Seven" in Card:
+                return 7
+            elif "Eight" in Card:
+                return 8
+            elif "Nine" in Card:
+                return 9
+            elif "Ten" in Card:
+                return 10
+            elif "Jack" in Card:
+                return 11
+            elif "Queen" in Card:
+                return 12
+            elif "King" in Card:
+                return 13
+
     class create_player:
         """Object that stores the player variables."""
         hand: list
         def __init__(self, player_name):
             self.name = player_name
-        
-# Example for using this lib:
-
-# # Initialize the dealer.
-# Dealer = Game_Handler().Dealer()
-
-# # Create the player(s).
-# players = {
-#     "p1": Game_Handler().create_player("Vipth"),
-#     "p2": Game_Handler().create_player("Player 2")
-# }
-
-# # For this example we have two players, so we will deal them both half of the deck.
-# # You cannot exceed the amount of cards in a standard deck (52).
-# for player in players:
-#     Dealer.deal_cards(players[player], 26)
-
-# # Print both players hands.
-# for player in players:
-#     print(f"{players[player].name}: {players[player].hand}")
