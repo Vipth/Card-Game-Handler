@@ -105,26 +105,28 @@ class Game_Handler:
             """Deals cards."""
             player.hand = [self.Dealer.random_card(self) for _ in range(cards)]
 
-    class Player:
+    class create_player:
         """Object that stores the player variables."""
         hand: list
-
+        def __init__(self, player_name):
+            self.name = player_name
+        
 # Example for using this lib:
 
 # Initialize the dealer.
 Dealer = Game_Handler().Dealer()
 
-# Initalize the player(s).
+# Create the player(s).
 players = {
-    "p1": Game_Handler().Player(),
-    "p2": Game_Handler().Player()
+    "p1": Game_Handler().create_player("Vipth"),
+    "p2": Game_Handler().create_player("Player 2")
 }
 
 # For this example we have two players, so we will deal them both half of the deck.
 # You cannot exceed the amount of cards in a standard deck (52).
 for player in players:
-    Dealer.deal_cards(players[player], 2)
+    Dealer.deal_cards(players[player], 6)
 
 # Print both players hands.
 for player in players:
-    print(players[player].hand)
+    print(f"{players[player].name}: {players[player].hand}")
