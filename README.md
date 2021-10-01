@@ -1,1 +1,1 @@
-# This program is meant to handle a deck of cards for poker (Texas Holdem).
+# Deck Handler for poker.
