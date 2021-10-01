@@ -1,6 +1,6 @@
 from random import choice
 
-class CardHandler:
+class CardDealer:
     """Handles card distribution and organization."""
     def __init__(self):
         # This is the deck of cards. 1 means the card is in the deck, 0 means the card is in someones hand.
@@ -98,10 +98,10 @@ class CardHandler:
         # Returns the card that has been chosen.
         return f'{self.card} of {self.suite}'
 
-    def generate_board_cards(self, amount=5):
+    def deal_board_cards(self, amount=5):
         """Generates the board cards and returns them as a list."""
 
-        return [CardHandler.random_card(self) for x in range(amount)]
+        return [CardDealer.random_card(self) for x in range(amount)]
 
-Deck = CardHandler()
-print(Deck.generate_board_cards())
+Deck = CardDealer()
+print(Deck.deal_board_cards())
