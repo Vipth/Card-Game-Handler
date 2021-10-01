@@ -34,7 +34,7 @@ class CardHandler:
             "Ten": 1,
             "Jack": 1,
             "Queen": 1,
-            "King": 0
+            "King": 1
         },
         "Spades": {
             "Ace": 1,
@@ -49,7 +49,7 @@ class CardHandler:
             "Ten": 1,
             "Jack": 1,
             "Queen": 1,
-            "King": 0
+            "King": 1
         },
         "Hearts": {
             "Ace": 1,
@@ -64,7 +64,7 @@ class CardHandler:
             "Ten": 1,
             "Jack": 1,
             "Queen": 1,
-            "King": 0
+            "King": 1
         }
     }
 
