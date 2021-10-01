@@ -97,12 +97,7 @@ class CardHandler:
 
     def generate_board_cards(self):
         """Generates the board cards and returns them as a list."""
-        
-        # Empty list to store the cards on the board
-        board_cards = []
-        for i in range(5):
-            board_cards.append(CardHandler.random_card(self))
-        return board_cards
+        return [CardHandler().random_card() for x in range(5)]
 
 
 D = CardHandler()
