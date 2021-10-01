@@ -1,1 +1,1 @@
-# Deck Handler for poker.
+# Deck Handler for card games.
