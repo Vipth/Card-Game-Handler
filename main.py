@@ -80,7 +80,6 @@ class CardHandler:
                 self.suite_total += self.Deck[suite][card]
             if self.suite_total > 0:
                 active_suites.append(suite)
-
         
         # Picks a suite from the list created above.
         self.suite = choice(active_suites)
