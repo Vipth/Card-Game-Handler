@@ -71,7 +71,7 @@ class CardHandler:
     def random_card(self):
         """Selects a random card from the deck."""
 
-        # Creates a list containing the suites with cards left
+        # Creates a list containing the suites with cards left.
         active_suites = []
         for suite in self.Deck:
             self.suite_total = 0
