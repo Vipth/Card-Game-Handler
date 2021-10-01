@@ -68,7 +68,7 @@ class CardHandler:
     }
 
 
-    # Currently throws an error when the deck is out of cards. I'm not sure how/when shuffling works in texas holdem, so i'm going to wait to program that.
+    # Currently throws an error when the deck is out of cards. I'm not sure how/when shuffling works in poker, so i'm going to wait to program that.
     def random_card(self):
         """Selects a random card from the deck."""
 
