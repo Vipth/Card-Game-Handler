@@ -3,7 +3,6 @@ from random import choice
 class CardHandler:
     """Handles card distribution and organization."""
     def __init__(self):
-        """Sets  the deck of cards."""
         # This is the deck of cards. 1 means the card is in the deck, 0 means the card is in someones hand.
         self.Deck = {
         "Clubs": {
@@ -106,7 +105,5 @@ class CardHandler:
 
         return [CardHandler.random_card(self) for x in range(5)]
 
-
-D = CardHandler()
-board = D.generate_board_cards()
-print(board)
+Deck = CardHandler()
+print(Deck.generate_board_cards())
