@@ -79,6 +79,7 @@ class CardHandler:
                 self.suite_total += self.Deck[suite][card]
             if self.suite_total > 0:
                 active_suites.append(suite)
+
         
         # Picks a suite from the list created above.
         self.suite = choice(active_suites)
@@ -92,12 +93,18 @@ class CardHandler:
         # Picks a card from the list created above.
         self.card = choice(active_cards_in_list)
 
+        # Removes card from Deck
+        print(self.Deck[self.suite])
+        self.Deck[self.suite][self.card] = 0
+        print(self.Deck[self.suite])
+
         # Returns the card that has been chosen.
         return f'{self.card} of {self.suite}'
 
     def generate_board_cards(self):
         """Generates the board cards and returns them as a list."""
-        return [CardHandler().random_card() for x in range(5)]
+
+        return [CardHandler.random_card(self) for x in range(5)]
 
 
 D = CardHandler()
