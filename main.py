@@ -1,7 +1,10 @@
 from random import choice
 
 class CardHandler:
+    """Handles card distribution and organization."""
     def __init__(self):
+        """Sets  the deck of cards."""
+        # This is the deck of cards. 1 means the card is in the deck, 0 means the card is in someones hand.
         self.Deck = {
         "Clubs": {
             "Ace": 1,
