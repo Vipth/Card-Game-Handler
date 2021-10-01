@@ -34,7 +34,7 @@ class CardHandler:
             "Ten": 1,
             "Jack": 1,
             "Queen": 1,
-            "King": 1
+            "King": 0
         },
         "Spades": {
             "Ace": 1,
@@ -49,7 +49,7 @@ class CardHandler:
             "Ten": 1,
             "Jack": 1,
             "Queen": 1,
-            "King": 1
+            "King": 0
         },
         "Hearts": {
             "Ace": 1,
@@ -64,7 +64,7 @@ class CardHandler:
             "Ten": 1,
             "Jack": 1,
             "Queen": 1,
-            "King": 1
+            "King": 0
         }
     }
 
@@ -96,9 +96,7 @@ class CardHandler:
         self.card = choice(active_cards_in_list)
 
         # Removes card from Deck
-        print(self.Deck[self.suite])
         self.Deck[self.suite][self.card] = 0
-        print(self.Deck[self.suite])
 
         # Returns the card that has been chosen.
         return f'{self.card} of {self.suite}'
