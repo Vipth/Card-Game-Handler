@@ -100,10 +100,10 @@ class CardHandler:
         # Returns the card that has been chosen.
         return f'{self.card} of {self.suite}'
 
-    def generate_board_cards(self):
+    def generate_board_cards(self, amount=5):
         """Generates the board cards and returns them as a list."""
 
-        return [CardHandler.random_card(self) for x in range(5)]
+        return [CardHandler.random_card(self) for x in range(amount)]
 
 Deck = CardHandler()
 print(Deck.generate_board_cards())
