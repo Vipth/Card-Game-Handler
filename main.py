@@ -1,6 +1,12 @@
 from random import choice
 
 class Game_Handler:
+    """
+    Tool to assist in building card games. Has the classes:\n
+    `Dealer`\n
+    `Card_Interpreter`\n
+    `create_player`
+    """
 
     class Dealer:
         """Handles card distribution and organization."""
@@ -70,7 +76,6 @@ class Game_Handler:
             }
         }
 
-        # Currently throws an error when the deck is out of cards. I'm not sure how/when shuffling works in poker, so i'm going to wait to program that.
         def random_card(self):
             """Selects a random card from the deck."""
 
@@ -106,8 +111,8 @@ class Game_Handler:
             player.hand = [self.Dealer.random_card(self) for _ in range(cards)]
 
     class Card_Interpreter:
-        Card: str
         def return_card_value(self, Card, high_ace=False):
+            """Returns the numerical value of a single card."""
             if "Ace" in Card:
                 if high_ace == True:
                     return 14
@@ -138,9 +143,17 @@ class Game_Handler:
             elif "King" in Card:
                 return 13
 
-    class create_player:
+        def return_hand_value(self, Hand: list, high_ace=False):
+            """Returns the deck as a list in numerical form.\n
+            Ex:`Game_Handler().Card_Interpreter().return_hand_value(Hand)`\n
+            """
+            hand_value = list()
+            for i in Hand:
+                hand_value.append(Game_Handler.Card_Interpreter.return_card_value(self, str(i), high_ace))
+            return hand_value
+
+    class player:
         """Object that stores the player variables."""
         hand: list
         def __init__(self, player_name):
             self.name = player_name
-
