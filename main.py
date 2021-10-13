@@ -4,8 +4,7 @@ class Game_Handler:
     """
     Tool to assist in building card games. Has the classes:\n
     `Dealer`\n
-    `Card_Interpreter`\n
-    `create_player`
+    `player`
     """
 
     class Dealer:
@@ -76,6 +75,7 @@ class Game_Handler:
             }
         }
 
+        # Currently throws an error when the deck is out of cards. I'm not sure how/when shuffling works in poker, so i'm going to wait to program that.
         def random_card(self):
             """Selects a random card from the deck."""
 
@@ -104,56 +104,34 @@ class Game_Handler:
             self.Deck[self.suite][self.card] = 0
 
             # Returns the card that has been chosen.
-            return f'{self.card} of {self.suite}'
+            return self.suite, self.card
 
         def deal_cards(self, player, cards=2):
             """Deals cards."""
-            player.hand = [self.Dealer.random_card(self) for _ in range(cards)]
+            for _ in range(cards):
+                suite, card = self.random_card()
+                player.hand[suite].update({card: 1})
 
-    class Card_Interpreter:
-        def return_card_value(self, Card, high_ace=False):
-            """Returns the numerical value of a single card."""
-            if "Ace" in Card:
-                if high_ace == True:
-                    return 14
-                else:
-                    return 1
-            elif "Two" in Card:
-                return 2
-            elif "Three" in Card:
-                return 3
-            elif "Four" in Card:
-                return 4
-            elif "Five" in Card:
-                return 5
-            elif "Six" in Card:
-                return 6
-            elif "Seven" in Card:
-                return 7
-            elif "Eight" in Card:
-                return 8
-            elif "Nine" in Card:
-                return 9
-            elif "Ten" in Card:
-                return 10
-            elif "Jack" in Card:
-                return 11
-            elif "Queen" in Card:
-                return 12
-            elif "King" in Card:
-                return 13
-
-        def return_hand_value(self, Hand: list, high_ace=False):
-            """Returns the deck as a list in numerical form.\n
-            Ex:`Game_Handler().Card_Interpreter().return_hand_value(Hand)`\n
-            """
-            hand_value = list()
-            for i in Hand:
-                hand_value.append(Game_Handler.Card_Interpreter.return_card_value(self, str(i), high_ace))
-            return hand_value
-
-    class player:
+    class Player:
         """Object that stores the player variables."""
-        hand: list
-        def __init__(self, player_name):
-            self.name = player_name
+        def __init__(self, name):
+            self.name = name
+            self.hand = {
+                "Clubs": {},
+                "Diamonds": {},
+                "Spades": {},
+                "Hearts": {}
+            }
+
+        def play_card(self, player, card: tuple): # Tuple in format of (Suite, Card), Ex: ("Hearts", "Ace")
+            """Transfers a card to another player object."""
+            suite, card = card[0], card[1]
+            if self.hand[suite][card] == 0:
+                self.hand[suite].update({card: 0})
+                player.hand[suite].update({card: 1})
+            else:
+                print(f"Card does not exist within {self.name}'s hand.")
+
+        def get_cards(self):
+            # I want to make this function return a smaller list or dictionary with the players cards, so it's more readable.
+            pass
