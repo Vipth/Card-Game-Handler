@@ -82,10 +82,10 @@ class Game_Handler:
             # Creates a list containing the suites with cards left.
             active_suites = []
             for suite in self.Deck:
-                self.suite_total = 0
+                suite_total = 0
                 for card in self.Deck[suite]:
-                    self.suite_total += self.Deck[suite][card]
-                if self.suite_total > 0:
+                    suite_total += self.Deck[suite][card]
+                if suite_total > 0:
                     active_suites.append(suite)
             
             # Picks a suite from the list created above.
@@ -114,8 +114,8 @@ class Game_Handler:
 
     class Player:
         """Object that stores the player variables."""
-        def __init__(self, name):
-            self.name = name
+        def __init__(self, player_name):
+            self.name = player_name
             self.hand = {
                 "Clubs": {},
                 "Diamonds": {},
@@ -133,5 +133,21 @@ class Game_Handler:
                 print(f"Card does not exist within {self.name}'s hand.")
 
         def get_cards(self):
-            # I want to make this function return a smaller list or dictionary with the players cards, so it's more readable.
-            pass
+            """Returns a neater dictionary only containing the cards in the player hand."""
+            cards = dict()
+            # Updates the active suites in the cards dictionary.
+            for suite in self.hand:
+                suite_total = 0
+                for card in self.hand[suite]:
+                    suite_total += self.hand[suite][card]
+                if suite_total > 0:
+                    cards.update({suite: {}})
+
+            # Updates the active cards to the proper suite in the cards dictionary.
+            for suite in self.hand:
+                for card in self.hand[suite]:
+                    if self.hand[suite][card] == 1:
+                        cards[suite].update({card: 1})
+
+            # Return the updated cards dictionary.
+            return cards
