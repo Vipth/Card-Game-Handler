@@ -125,7 +125,7 @@ class Game_Handler:
         def play_card(self, player, card: tuple): # Tuple in format of (Suite, Card), Ex: ("Hearts", "Ace")
             """Transfers a card to another player object."""
             suite, card = card[0], card[1]
-            if self.hand[suite][card] == 0:
+            if self.hand[suite][card] == 1:
                 self.hand[suite].update({card: 0})
                 player.hand[suite].update({card: 1})
             else:
