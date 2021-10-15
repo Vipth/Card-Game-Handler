@@ -11,7 +11,7 @@ class Game_Handler:
         """Handles card distribution and organization."""
         def __init__(self):
             self.Dealer = Game_Handler.Dealer
-            # This is the deck of cards. 0 means the card is in the deck, 0 means the card is somewhere else.
+            # This is the deck of cards. 1 means the card is in the deck, 0 means the card is somewhere else.
             self.Deck = {
             "Clubs": {
                 "Ace": 1,
@@ -75,7 +75,6 @@ class Game_Handler:
             }
         }
 
-        # Currently throws an error when the deck is out of cards. I'm not sure how/when shuffling works in poker, so i'm going to wait to program that.
         def random_card(self):
             """Selects a random card from the deck."""
 
