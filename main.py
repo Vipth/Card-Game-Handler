@@ -2,7 +2,7 @@ from random import choice
 
 class Game_Handler:
     """
-    Tools to assist in building card games\n
+    Tool to assist in building card games\n
     Dealer Class:
     ---
     `Holds the deck of cards and deals with card disribution.`
@@ -22,6 +22,8 @@ class Game_Handler:
         """
         def __init__(self):
             self.Dealer = Game_Handler.Dealer
+            # We'll store the buy in money within the Dealer class.
+            self.prize_pool = 0
             # This is the deck of cards. 1 means the card is in the deck, 0 means the card is somewhere else.
             self.Deck = {
             "Clubs": {
